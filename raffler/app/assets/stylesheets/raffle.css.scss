@@ -20,6 +20,7 @@ a {
 
 #container {
   width: 600px;
+  min-height: 500px;
   margin: 0 auto;
   background-color: #FFF;
   padding: 20px 40px;
@@ -31,7 +32,7 @@ form input {
   font-size: 20px;
 }
 form input[type='text'] {
-  width: 535px;
+  width: 95%;
 }
 form input[type='submit'], button {
   -webkit-appearance: caret;
@@ -88,3 +89,24 @@ li {
     }
   }
 }
+
+
+#orders {
+  width: 400px;
+  border: 1px solid black;
+  float: left;
+  padding: 5px;
+}
+#items {
+  width: 150px;
+  border: 1px solid black;
+  margin-left: 10px;
+  float: right;
+  background: white;
+  ul {
+    li {
+      font-size: 12px;
+    }
+  }
+}
+

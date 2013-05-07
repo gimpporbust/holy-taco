@@ -1,0 +1,30 @@
+<p>Build a taco!</p>
+
+<div id="orders" ng-controller="OrdersCtrl">
+  <ul>
+      <li ng-repeat="order in orders">
+        {{ order.patron}} - {{order.total | currency }}
+      </li>
+  </ul>
+  
+  <form ng-submit="addOrder()">
+    <input type="text" ng-model="newOrder.patron">
+    <p ng-model="newOrder.total">{{ orderTotal | currency }}</p>
+    <!-- <p ng-model="newOrder.total" ng-bind="orderTotal"></p> -->
+    <ul ng-model="newOrder.items">
+        <li ng-repeat="item in orderItems">
+          {{ item.name }} - {{ item.price | currency }}
+        </li>
+    </ul>
+    <input type="submit" value="Finish">
+  </form>
+  
+</div>
+
+<div id="items" ng-controller="ItemsCtrl">
+  <ul>
+    <li ng-repeat="item in items" ng-click="addItem(item)">
+      {{ item.name }} - {{ item.price | currency }}
+    </li>
+  </ul>
+</div>
