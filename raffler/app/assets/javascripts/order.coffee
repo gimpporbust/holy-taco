@@ -1,4 +1,4 @@
-app = angular.module("Orders", ["ngResource"])
+app = angular.module("TacoCity", ["ngResource"])
 
 app.factory "Order", ["$resource", ($resource) ->
   $resource("/orders/:id", {id: "@id"}, {update: {method: "PUT"}})
