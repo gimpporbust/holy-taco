@@ -1,17 +1,18 @@
-<p>Build a taco!</p>
+<h1>Build a taco!</h1>
 
 <div id="orders" ng-controller="OrdersCtrl">
+  <h2>Previous Orders </h2>
   <ul>
       <li ng-repeat="order in orders">
         {{ order.patron}} - {{order.total | currency }}
       </li>
   </ul>
-  
+  <h3> New Order</h3>
   <form ng-submit="addOrder()">
+    <label>Name:</label>
     <input type="text" ng-model="newOrder.patron">
-    <p ng-model="newOrder.total">{{ orderTotal | currency }}</p>
-    <!-- <p ng-model="newOrder.total" ng-bind="orderTotal"></p> -->
-    <ul ng-model="newOrder.items">
+    <p ng-model="newOrder.total" >{{ orderTotal() | currency}}</p>
+       <ul ng-model="newOrder.items">
         <li ng-repeat="item in orderItems">
           {{ item.name }} - {{ item.price | currency }}
         </li>
@@ -22,6 +23,7 @@
 </div>
 
 <div id="items" ng-controller="ItemsCtrl">
+  <h2> Menu </h2>
   <ul>
     <li ng-repeat="item in items" ng-click="addItem(item)">
       {{ item.name }} - {{ item.price | currency }}

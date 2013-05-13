@@ -34,24 +34,29 @@ app.service "currentOrder", ->
 
 
 
-
 @ItemsCtrl = ["$scope", "Item", "currentOrder", ($scope, Item, currentOrder) ->
   $scope.items = Item.query()
-  
   $scope.addItem = (item) ->
     currentOrder.addItem item
+  
+
 ]
 
-@OrdersCtrl = ["$scope", "Order", "currentOrder", ($scope, Order, currentOrder) ->
+@OrdersCtrl = ["$scope", "Order","currentOrder", ($scope, Order, currentOrder) ->
+  
   $scope.orders = Order.query()
   $scope.orderItems = currentOrder.getItems()
-  $scope.orderTotal = currentOrder.getTotal()
-  
+  # Talk to me I will explain this later
+  $scope.orderTotal = currentOrder.getTotal
+
+
+
   $scope.addOrder = ->
     $scope.newOrder['total'] = currentOrder.getTotal()
     $scope.newOrder['items'] = currentOrder.getItems()
     console.log "saving", $scope.newOrder
     order = Order.save($scope.newOrder)
     $scope.orders.push(order)
-    $scope.newOrder = {}
+    $scope.newOrder= {}
+    $scope.orderItems = {}
 ]
